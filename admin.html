@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - S.L.A Fruit Shop</title>
+    <link rel="icon" href="images/SLA-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #faf8f3;
+            color: #1a1a2e;
+            min-height: 100vh;
+        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+        /* Login */
+        #login-screen {
+            display: flex; align-items: center; justify-content: center;
+            min-height: 100vh; padding: 20px;
+        }
+        .login-box {
+            background: #ffffff; border: 1px solid #e5e7eb;
+            border-radius: 16px; padding: 40px; width: 100%; max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .login-box h1 {
+            font-size: 24px; margin-bottom: 8px; color: #1a1a2e;
+        }
+        .login-box p {
+            color: #6b7280; font-size: 14px; margin-bottom: 24px;
+        }
+        .login-box input {
+            width: 100%; padding: 12px 16px;
+            background: #f9fafb; border: 1px solid #e5e7eb;
+            border-radius: 8px; color: #1a1a2e; font-size: 15px;
+            outline: none; transition: border-color 0.2s;
+        }
+        .login-box input:focus { border-color: #2e7d32; }
+        .login-box button {
+            width: 100%; padding: 12px; margin-top: 16px;
+            background: #2e7d32; color: #fff; border: none;
+            border-radius: 8px; font-size: 15px; font-weight: 600;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .login-box button:hover { background: #256f2e; }
+        .login-error { color: #dc2626; font-size: 13px; margin-top: 12px; display: none; }
+
+        /* Dashboard */
+        #dashboard { display: none; }
+        .dash-header {
+            background: #ffffff; border-bottom: 1px solid #e5e7eb;
+            padding: 16px 24px; display: flex; justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .dash-header h1 { font-size: 20px; color: #1a1a2e; display: flex; align-items: center; gap: 10px; }
+        .dash-header h1 img { width: 64px; height: 64px; object-fit: contain; border-radius: 8px; }
+        .dash-header span { color: #2e7d32; }
+        .dash-header button {
+            background: #f3f4f6; color: #374151; border: none;
+            padding: 8px 16px; border-radius: 8px; cursor: pointer;
+            font-size: 13px; transition: background 0.2s;
+        }
+        .dash-header button:hover { background: #e5e7eb; }
+
+        .dash-body { padding: 24px; max-width: 1200px; margin: 0 auto; }
+
+        /* Tabs */
+        .tabs { display: flex; gap: 4px; margin-bottom: 24px;
+            background: #ffffff; border-radius: 12px; padding: 4px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .tab {
+            flex: 1; padding: 10px 20px; text-align: center;
+            border-radius: 8px; cursor: pointer; font-size: 14px;
+            font-weight: 500; transition: all 0.2s; color: #6b7280; border: none;
+            background: transparent;
+        }
+        .tab.active { background: #2e7d32; color: #fff; }
+        .tab:not(.active):hover { color: #1a1a2e; }
+        .tab-count {
+            display: inline-block; margin-left: 6px; font-size: 12px;
+            padding: 0 8px; border-radius: 10px; background: rgba(0,0,0,0.06);
+        }
+        .tab.active .tab-count { background: rgba(0,0,0,0.15); }
+
+        /* Panels */
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        /* Table */
+        .table-wrap {
+            background: #ffffff; border: 1px solid #e5e7eb;
+            border-radius: 12px; overflow-x: auto;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 16px; text-align: left; font-size: 13px; }
+        th {
+            background: #f9fafb; color: #6b7280; font-weight: 500;
+            text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px;
+            position: sticky; top: 0;
+        }
+        td { border-top: 1px solid #f3f4f6; }
+        tr:hover td { background: rgba(46, 125, 50, 0.03); }
+        .badge {
+            display: inline-block; padding: 3px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 500; text-transform: capitalize;
+        }
+        .badge-retail { background: #dbeafe; color: #1e40af; }
+        .badge-wholesale { background: #dcfce7; color: #166534; }
+        .badge-delivery { background: #fef3c7; color: #92400e; }
+        .badge-other { background: #f3e8ff; color: #6b21a8; }
+        .badge-cod { background: #fef3c7; color: #92400e; }
+        .badge-upi { background: #dbeafe; color: #1e40af; }
+        .badge-netbanking { background: #dcfce7; color: #166534; }
+        .badge-placed { background: #f3e8ff; color: #6b21a8; }
+        .badge-confirmed { background: #dbeafe; color: #1e40af; }
+        .badge-shipped { background: #dcfce7; color: #166534; }
+        .badge-delivered { background: #dcfce7; color: #166534; }
+        .badge-cancelled { background: #fee2e2; color: #991b1b; }
+        .badge-pending { background: #fef3c7; color: #92400e; }
+        .badge-paid { background: #dcfce7; color: #166534; }
+        .badge-failed { background: #fee2e2; color: #991b1b; }
+        .items-cell { max-width: 260px; }
+
+        .empty-state {
+            text-align: center; padding: 48px 24px; color: #9ca3af;
+        }
+        .empty-state p { font-size: 15px; }
+
+        .loading { text-align: center; padding: 48px; color: #9ca3af; }
+
+        .timestamp { font-size: 12px; color: #9ca3af; white-space: nowrap; }
+        .msg-cell { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        @media (max-width: 768px) {
+            .dash-body { padding: 16px; }
+            th, td { padding: 8px 12px; font-size: 12px; }
+            .msg-cell { max-width: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="login-screen">
+        <div class="login-box">
+            <h1>🔐 Admin Panel</h1>
+            <p>S.L.A Fruit Shop — Contact &amp; User Management</p>
+            <input type="password" id="admin-password" placeholder="Enter admin password" autofocus>
+            <button onclick="adminLogin()">Sign In</button>
+            <div class="login-error" id="login-error">Incorrect password</div>
+        </div>
+    </div>
+
+    <div id="dashboard">
+        <div class="dash-header">
+            <h1><img src="images/SLA-logo.png" alt="S.L.A Fruit Shop logo"> <span>S.L.A</span> Admin</h1>
+            <button onclick="adminLogout()">Sign Out</button>
+        </div>
+        <div class="dash-body">
+            <div class="tabs">
+                <button class="tab active" data-tab="contacts" onclick="switchTab('contacts')">
+                    📋 Contact Inquiries <span class="tab-count" id="contacts-count">0</span>
+                </button>
+                <button class="tab" data-tab="users" onclick="switchTab('users')">
+                    👥 Registered Users <span class="tab-count" id="users-count">0</span>
+                </button>
+                <button class="tab" data-tab="orders" onclick="switchTab('orders')">
+                    🛒 Orders <span class="tab-count" id="orders-count">0</span>
+                </button>
+            </div>
+
+            <div class="panel active" id="panel-contacts">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Service</th>
+                                <th>Delivery Address</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                <tbody id="contacts-body">
+                    <tr><td colspan="6"><div class="loading">Loading...</div></td></tr>
+                </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="panel" id="panel-users">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-body">
+                            <tr><td colspan="4"><div class="loading">Loading...</div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="panel" id="panel-orders">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Contact</th>
+                                <th>Address</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-body">
+                            <tr><td colspan="8"><div class="loading">Loading...</div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.min.js"></script>
+</body>
+</html>
