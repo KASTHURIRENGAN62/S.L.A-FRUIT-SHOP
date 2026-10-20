@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e7d32">
+    <meta name="description" content="Delete your S.L.A Fruit Shop account and learn what happens to your data.">
+    <meta name="robots" content="noindex, follow">
+    <title>Delete Account — S.L.A Fruit Shop</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            min-height: 100%;
+            background-color: #f7fff7;
+            color-scheme: light;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f7fff7;
+            color: #1a1a2e;
+            line-height: 1.6;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        }
+
+        .page-header {
+            background: #14532d;
+            color: #ffffff;
+            padding: 2.5rem 1.5rem 2rem;
+        }
+
+        .page-header .inner,
+        main {
+            width: 100%;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .brand img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; background: #ffffff; }
+
+        .page-header h1 { font-size: clamp(1.6rem, 4vw, 2.1rem); line-height: 1.2; margin-bottom: 0.4rem; }
+        .page-header p { color: #d1fae5; font-size: 0.9rem; }
+
+        main { padding: 2rem 1.5rem 3.5rem; }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #d7e8d7;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        h2 { font-size: 1.15rem; color: #14532d; margin-bottom: 0.6rem; }
+        h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+
+        p, li { font-size: 0.95rem; }
+        p + p { margin-top: 0.7rem; }
+        ul { margin: 0.5rem 0 0.5rem 1.3rem; }
+        li { margin-bottom: 0.35rem; }
+
+        .account-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem;
+            background: #f0f9f0;
+            border: 1px solid #d7e8d7;
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.92rem;
+        }
+
+        .account-line strong { color: #14532d; overflow-wrap: anywhere; }
+
+        .link-btn {
+            background: none;
+            border: none;
+            color: #1d4ed8;
+            font-family: inherit;
+            font-size: 0.85rem;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 0.15rem;
+        }
+
+        a { color: #1d4ed8; overflow-wrap: anywhere; }
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+
+        .warning {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            border-radius: 12px;
+            padding: 1rem 1.15rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.92rem;
+        }
+
+        .warning strong { color: #991b1b; display: block; margin-bottom: 0.25rem; }
+
+        .field { margin-bottom: 1rem; }
+
+        .field label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            color: #1f2937;
+        }
+
+        .field .hint { display: block; font-weight: 400; color: #6b7280; font-size: 0.8rem; margin-top: 0.2rem; }
+
+        .field input[type="password"],
+        .field input[type="email"],
+        .field input[type="text"] {
+            width: 100%;
+            padding: 0.75rem 0.9rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: #ffffff;
+            color: #1a1a2e;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .checkbox-row input { width: 18px; height: 18px; margin-top: 0.2rem; flex: 0 0 auto; }
+
+        #form-error {
+            color: #b91c1c;
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            border-radius: 10px;
+            padding: 0.7rem 0.9rem;
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        #form-error.visible { display: block; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            width: 100%;
+            padding: 0.85rem 1.4rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .btn-danger { background: #b91c1c; color: #ffffff; }
+        .btn-danger:hover:not(:disabled) { background: #991b1b; }
+        .btn-danger:disabled { background: #d1a3a3; cursor: not-allowed; }
+
+        .btn-secondary { background: #ffffff; color: #14532d; border: 1px solid #b6d7b6; }
+        .btn-secondary:hover { background: #f0f9f0; }
+
+        .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+        .actions .btn { width: auto; flex: 1 1 180px; }
+
+        .success-mark {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #dcfce7;
+            color: #15803d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .muted { color: #4b5563; font-size: 0.9rem; }
+
+        .placeholder {
+            background: #fef2f2;
+            border: 1px dashed #f87171;
+            border-radius: 8px;
+            padding: 0 0.35rem;
+            font-weight: 600;
+            color: #b91c1c;
+            white-space: nowrap;
+        }
+
+        [hidden] { display: none !important; }
+
+        @media (max-width: 520px) {
+            .page-header { padding: 2rem 1rem 1.5rem; }
+            main { padding: 1.5rem 1rem 2.5rem; }
+            .card { padding: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="inner">
+            <a class="brand" href="/">
+                <img src="/icons/icon-192.png" alt="" width="40" height="40">
+                S.L.A Fruit Shop
+            </a>
+            <h1>Delete your account</h1>
+            <p>This page permanently deletes your customer account.</p>
+        </div>
+    </header>
+
+    <main>
+        <div id="loading" class="card" aria-live="polite">
+            <p class="muted">Checking your sign-in status…</p>
+        </div>
+
+        <section id="signed-out" class="card" hidden>
+            <h2>You are not signed in</h2>
+            <p>
+                To delete an account you must first sign in with the account you want to delete.
+                Return to the shop, open the sign-in menu and sign in, then come back to this page.
+            </p>
+            <p class="muted">
+                If you never created an account but sent us a contact message, you can still ask us
+                to delete that message using the contact details below.
+            </p>
+            <div class="actions">
+                <a class="btn btn-danger" href="/">Go to the shop to sign in</a>
+                <a class="btn btn-secondary" href="/privacy-policy">Read the privacy policy</a>
+            </div>
+        </section>
+
+        <section id="signed-in" hidden>
+            <div class="account-line">
+                <span>Signed in as <strong id="acct-email"></strong></span>
+                <button type="button" class="link-btn" id="switch-account">Not you? Sign out</button>
+            </div>
+
+            <div class="warning">
+                <strong>This cannot be undone.</strong>
+                Your account record and sign-in token will be permanently removed. Past orders are
+                kept for sales and accounting records but are anonymised: your name, phone, email,
+                address and payment identifiers are removed or replaced. Contact-form messages are
+                not linked to your account, so they need a separate request.
+            </div>
+
+            <div class="card">
+                <h2>Confirm deletion</h2>
+                <form id="delete-form" novalidate>
+                    <div class="field" id="password-field">
+                        <label for="delete-password">Current password</label>
+                        <input type="password" id="delete-password" autocomplete="current-password">
+                        <span class="hint">Required to prove it is really you.</span>
+                    </div>
+
+                    <div class="field" id="email-field" hidden>
+                        <label for="delete-email">Account email address</label>
+                        <input type="email" id="delete-email" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="hint">Type the email address this social account uses.</span>
+                    </div>
+
+                    <div class="field">
+                        <label for="delete-confirm">Type DELETE to confirm</label>
+                        <input type="text" id="delete-confirm" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="DELETE">
+                    </div>
+
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="delete-ack">
+                        <label for="delete-ack">
+                            I understand that my account will be deleted, my past orders will be
+                            anonymised, and this action cannot be undone.
+                        </label>
+                    </div>
+
+                    <div id="form-error" role="alert" aria-live="assertive"></div>
+
+                    <button type="submit" class="btn btn-danger" id="delete-submit">Delete my account permanently</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="success" class="card" hidden aria-live="polite">
+            <div class="success-mark" aria-hidden="true">&#10003;</div>
+            <h2>Your account has been deleted</h2>
+            <p>
+                Your account and sign-in token have been removed, and your past orders have been
+                anonymised. You have been signed out on this device.
+            </p>
+            <p class="muted">
+                If you also sent us contact messages and want them deleted, or if you believe any
+                data was missed, contact the shop using the details below.
+            </p>
+            <div class="actions">
+                <a class="btn btn-secondary" href="/">Back to the shop</a>
+                <a class="btn btn-secondary" href="/privacy-policy">Privacy policy</a>
+            </div>
+        </section>
+
+        <div class="card">
+            <h2>Need help or don't have an account?</h2>
+            <p>
+                Contact the shop to ask about data deletion, correction or access. Please include
+                the name, phone number and approximate date you used so we can locate the record.
+            </p>
+            <p>
+                Phone: <a href="tel:9715840263">9715840263</a> or
+                <a href="tel:9843018039">9843018039</a><br>
+                Email: <span class="placeholder">REPLACE_WITH_VERIFIED_BUSINESS_EMAIL</span>
+            </p>
+            <p class="muted">
+                ECR Road, Kattumavadi, Tamil Nadu 614630, India. Shop hours: 7:00 AM – 10:00 PM, daily.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var API_BASE = '/api';
+            var csrfToken = null;
+            var currentUser = null;
+            var busy = false;
+
+            var loading = document.getElementById('loading');
+            var signedOut = document.getElementById('signed-out');
+            var signedIn = document.getElementById('signed-in');
+            var success = document.getElementById('success');
+            var form = document.getElementById('delete-form');
+            var formError = document.getElementById('form-error');
+            var submitBtn = document.getElementById('delete-submit');
+            var passwordField = document.getElementById('password-field');
+            var passwordInput = document.getElementById('delete-password');
+            var emailField = document.getElementById('email-field');
+            var emailInput = document.getElementById('delete-email');
+            var confirmInput = document.getElementById('delete-confirm');
+            var ackInput = document.getElementById('delete-ack');
+            var emailLabel = document.getElementById('acct-email');
+
+            function show(section) {
+                loading.hidden = section !== 'loading';
+                signedOut.hidden = section !== 'signed-out';
+                signedIn.hidden = section !== 'signed-in';
+                success.hidden = section !== 'success';
+            }
+
+            function clearAuth() {
+                try {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                } catch (err) {}
+            }
+
+            function showError(message) {
+                formError.textContent = message;
+                formError.classList.add('visible');
+            }
+
+            function clearError() {
+                formError.textContent = '';
+                formError.classList.remove('visible');
+            }
+
+            function setBusy(value) {
+                busy = value;
+                submitBtn.disabled = value;
+                submitBtn.textContent = value ? 'Deleting…' : 'Delete my account permanently';
+            }
+
+            function getToken() {
+                try { return localStorage.getItem('token'); } catch (err) { return null; }
+            }
+
+            function authHeaders(extra) {
+                var headers = { Authorization: 'Bearer ' + getToken() };
+                if (extra) {
+                    Object.keys(extra).forEach(function (key) { headers[key] = extra[key]; });
+                }
+                return headers;
+            }
+
+            async function loadUser() {
+                if (!getToken()) {
+                    show('signed-out');
+                    return;
+                }
+                try {
+                    var res = await fetch(API_BASE + '/auth/me', { headers: authHeaders() });
+                    if (!res.ok) {
+                        clearAuth();
+                        show('signed-out');
+                        return;
+                    }
+                    currentUser = await res.json();
+                } catch (err) {
+                    clearAuth();
+                    show('signed-out');
+                    return;
+                }
+
+                emailLabel.textContent = currentUser.email || currentUser.name || 'your account';
+                var isLocal = !currentUser.provider || currentUser.provider === 'local';
+                passwordField.hidden = !isLocal;
+                emailField.hidden = isLocal;
+                passwordInput.required = isLocal;
+                emailInput.required = !isLocal;
+                if (!isLocal) {
+                    emailInput.value = '';
+                }
+                show('signed-in');
+            }
+
+            async function loadCsrfToken() {
+                var res = await fetch(API_BASE + '/account/csrf', { headers: authHeaders() });
+                if (res.status === 401) {
+                    clearAuth();
+                    show('signed-out');
+                    throw new Error('Your session has expired. Please sign in again.');
+                }
+                if (!res.ok) {
+                    throw new Error('Could not start a secure deletion request. Please reload and try again.');
+                }
+                var data = await res.json();
+                if (!data || !data.csrfToken) {
+                    throw new Error('Could not start a secure deletion request. Please reload and try again.');
+                }
+                return data.csrfToken;
+            }
+
+            document.getElementById('switch-account').addEventListener('click', function () {
+                clearAuth();
+                window.location.href = '/';
+            });
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                if (busy) return;
+                clearError();
+
+                var isLocal = !currentUser.provider || currentUser.provider === 'local';
+                var confirmText = confirmInput.value.trim();
+                var password = passwordInput.value;
+                var email = emailInput.value.trim().toLowerCase();
+
+                if (confirmText !== 'DELETE') {
+                    showError('Type DELETE exactly to confirm.');
+                    confirmInput.focus();
+                    return;
+                }
+                if (!ackInput.checked) {
+                    showError('Please tick the box to confirm you understand the consequences.');
+                    ackInput.focus();
+                    return;
+                }
+                if (isLocal && !password) {
+                    showError('Enter your current password.');
+                    passwordInput.focus();
+                    return;
+                }
+                if (!isLocal && !email) {
+                    showError('Enter the email address for this account.');
+                    emailInput.focus();
+                    return;
+                }
+
+                setBusy(true);
+                try {
+                    if (!csrfToken) {
+                        csrfToken = await loadCsrfToken();
+                    }
+
+                    var body = { confirm: confirmText };
+                    if (isLocal) {
+                        body.password = password;
+                    } else {
+                        body.email = email;
+                    }
+
+                    var res = await fetch(API_BASE + '/account', {
+                        method: 'DELETE',
+                        headers: authHeaders({
+                            'Content-Type': 'application/json',
+                            'X-CSRF-Token': csrfToken
+                        }),
+                        body: JSON.stringify(body)
+                    });
+
+                    var data = {};
+                    try { data = await res.json(); } catch (err) {}
+
+                    if (res.ok) {
+                        clearAuth();
+                        csrfToken = null;
+                        form.reset();
+                        show('success');
+                        success.querySelector('h2').setAttribute('tabindex', '-1');
+                        success.querySelector('h2').focus();
+                        return;
+                    }
+
+                    if (res.status === 401) {
+                        var authError = data.error || '';
+                        if (/password|email address/i.test(authError)) {
+                            showError(authError);
+                            return;
+                        }
+                        clearAuth();
+                        show('signed-out');
+                        return;
+                    }
+
+                    if (res.status === 429) {
+                        var retry = res.headers.get('Retry-After');
+                        var minutes = retry ? Math.max(1, Math.ceil(Number(retry) / 60)) : 15;
+                        showError((data.error || 'Too many attempts.') + ' Please try again in about ' + minutes + ' minute(s).');
+                        return;
+                    }
+
+                    if (res.status === 403) {
+                        csrfToken = null;
+                    }
+
+                    showError(data.error || 'Could not delete the account. Please try again.');
+                } catch (err) {
+                    showError(err && err.message ? err.message : 'Network error. Please check your connection and try again.');
+                } finally {
+                    setBusy(false);
+                }
+            });
+
+            loadUser();
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e7d32">
+    <meta name="description" content="How S.L.A Fruit Shop collects, uses, shares and deletes personal information.">
+    <meta name="robots" content="index, follow">
+    <title>Privacy Policy — S.L.A Fruit Shop</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            min-height: 100%;
+            background-color: #f7fff7;
+            color-scheme: light;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f7fff7;
+            color: #1a1a2e;
+            line-height: 1.65;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        }
+
+        .page-header {
+            background: #14532d;
+            color: #ffffff;
+            padding: 2.5rem 1.5rem 2rem;
+        }
+
+        .page-header .inner,
+        .content {
+            width: 100%;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .brand img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; background: #ffffff; }
+
+        .page-header h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); line-height: 1.2; margin-bottom: 0.5rem; }
+        .page-header p { color: #d1fae5; font-size: 0.9rem; }
+
+        .content { padding: 2rem 1.5rem 3.5rem; }
+
+        .intro { font-size: 1rem; margin-bottom: 1.5rem; }
+
+        nav.toc {
+            background: #ffffff;
+            border: 1px solid #d7e8d7;
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        nav.toc h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: #2e7d32; margin-bottom: 0.6rem; }
+        nav.toc ol { margin-left: 1.2rem; font-size: 0.92rem; }
+        nav.toc a { color: #1a1a2e; }
+        nav.toc a:hover { color: #2e7d32; }
+
+        section { margin-bottom: 2rem; }
+
+        h2 {
+            font-size: 1.25rem;
+            color: #14532d;
+            margin-bottom: 0.6rem;
+            scroll-margin-top: 1rem;
+        }
+
+        h3 { font-size: 1rem; color: #1a1a2e; margin: 1rem 0 0.35rem; }
+
+        p, li { font-size: 0.95rem; }
+        p + p { margin-top: 0.7rem; }
+        ul, ol { margin: 0.5rem 0 0.5rem 1.3rem; }
+        li { margin-bottom: 0.35rem; }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #d7e8d7;
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .notice {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .notice strong { color: #92400e; }
+
+        .placeholder {
+            background: #fef2f2;
+            border: 1px dashed #f87171;
+            border-radius: 8px;
+            padding: 0 0.35rem;
+            font-weight: 600;
+            color: #b91c1c;
+            white-space: nowrap;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.9rem; }
+        th, td { text-align: left; vertical-align: top; padding: 0.6rem 0.65rem; border-bottom: 1px solid #e5efe5; }
+        th { background: #f0f9f0; color: #14532d; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .table-wrap { overflow-x: auto; background: #ffffff; border: 1px solid #d7e8d7; border-radius: 14px; }
+
+        a { color: #1d4ed8; overflow-wrap: anywhere; }
+        a:hover { color: #1e40af; }
+
+        .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.8rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-primary { background: #2e7d32; color: #ffffff; }
+        .btn-primary:hover { background: #256428; color: #ffffff; }
+        .btn-secondary { background: #ffffff; color: #14532d; border: 1px solid #b6d7b6; }
+        .btn-secondary:hover { background: #f0f9f0; }
+
+        .btn:focus-visible, a:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+
+        footer.page-footer {
+            border-top: 1px solid #d7e8d7;
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+            font-size: 0.85rem;
+            color: #4b5563;
+        }
+
+        @media (max-width: 520px) {
+            .page-header { padding: 2rem 1rem 1.5rem; }
+            .content { padding: 1.5rem 1rem 2.5rem; }
+            .card, nav.toc { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="inner">
+            <a class="brand" href="/">
+                <img src="/icons/icon-192.png" alt="" width="40" height="40">
+                S.L.A Fruit Shop
+            </a>
+            <h1>Privacy Policy</h1>
+            <p>Last updated: 20 October 2026 &middot; Applies to this website and installed app</p>
+        </div>
+    </header>
+
+    <main class="content">
+        <p class="intro">
+            S.L.A Fruit Shop ("we", "us", "our") runs this website and app for fruit retail,
+            wholesale and local delivery. This policy explains what personal information we
+            collect, why we collect it, who we share it with, how long we keep it, and how you
+            can ask us to correct or delete it.
+        </p>
+
+        <nav class="toc" aria-label="Contents">
+            <h2>On this page</h2>
+            <ol>
+                <li><a href="#who-we-are">Who we are</a></li>
+                <li><a href="#what-we-collect">What we collect</a></li>
+                <li><a href="#payments">Payments</a></li>
+                <li><a href="#why">Why we use it</a></li>
+                <li><a href="#sharing">Who we share it with</a></li>
+                <li><a href="#retention">How long we keep it</a></li>
+                <li><a href="#security">How we protect it</a></li>
+                <li><a href="#choices">Your choices and rights</a></li>
+                <li><a href="#delete">Deleting your account</a></li>
+                <li><a href="#children">Children</a></li>
+                <li><a href="#third-party">Third-party links and embeds</a></li>
+                <li><a href="#changes">Changes to this policy</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ol>
+        </nav>
+
+        <section id="who-we-are">
+            <h2>1. Who we are</h2>
+            <p>
+                S.L.A Fruit Shop is a family-run fruit shop operated by Shahjahan, established in
+                2009, at ECR Road, Kattumavadi, Tamil Nadu 614630, India. We are the controller of
+                the personal information described in this policy. You can reach us using the
+                details in <a href="#contact">section 13</a>.
+            </p>
+        </section>
+
+        <section id="what-we-collect">
+            <h2>2. What we collect</h2>
+            <p>We only collect what the website or app needs to work. In detail:</p>
+
+            <h3>Account details</h3>
+            <p>
+                If you create an account, we store your name, email address, an optional phone
+                number and your password. Passwords are stored only as a <strong>bcrypt hash</strong>;
+                we never store or see your plain password. If you sign in with Facebook, Instagram
+                or X (Twitter), we receive your name, email address, the provider's account ID and,
+                where the provider supplies it, a profile picture URL. We do not receive your social
+                media password.
+            </p>
+
+            <h3>Order details</h3>
+            <p>
+                When you place an order we store your name, email address (when supplied), phone
+                number, delivery address, the items and quantities you ordered, the total amount,
+                your chosen payment method and your order and payment status. Orders are linked to
+                your account by an internal account ID.
+            </p>
+
+            <h3>Contact form details</h3>
+            <p>
+                If you use the contact form we store your name, phone number, the service you
+                selected, an optional address and your message. Contact form entries are
+                <strong>not linked to a customer account</strong>.
+            </p>
+
+            <h3>Information kept on your device</h3>
+            <p>
+                The website uses your browser's local storage. This information stays on your device
+                and is not sent to us except where noted:
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Storage key</th><th>What it holds</th><th>Why</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>fruit_shop_cart</code></td><td>Your cart items and quantities</td><td>Keep your cart while you browse</td></tr>
+                        <tr><td><code>token</code></td><td>A signed sign-in token (JWT, valid 7 days)</td><td>Keep you signed in; sent with authenticated requests</td></tr>
+                        <tr><td><code>user</code></td><td>Your account ID, name and email</td><td>Show your name in the menu</td></tr>
+                        <tr><td><code>fruit_shop_lang</code></td><td>Your chosen language</td><td>Show the site in that language</td></tr>
+                        <tr><td><code>sla_install_dismissed</code></td><td>A flag you dismissed the install prompt</td><td>Avoid showing it again</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Cookies</h3>
+            <p>
+                We do not use advertising or analytics cookies. When you sign in with a social
+                provider, a short-lived session cookie (named <code>connect.sid</code>, HTTP-only,
+                expiring after about 10 minutes) is used only to complete the sign-in handshake.
+                Embedded services described in <a href="#sharing">section 5</a> and
+                <a href="#third-party">section 11</a> may set their own cookies according to their
+                policies.
+            </p>
+
+            <h3>Server logs and notifications</h3>
+            <p>
+                Our server writes operational error messages to its console. If the optional
+                WhatsApp, Telegram or email notification services are not configured, the
+                notification content (which can include a customer's name, phone number, email
+                address and order details) may be written to the server console instead. We do not
+                run third-party analytics, tracking pixels or advertising SDKs.
+            </p>
+            <p>
+                We do <strong>not</strong> collect precise location, contacts, photos, calendar
+                data or advertising identifiers.
+            </p>
+        </section>
+
+        <section id="payments">
+            <h2>3. Payments</h2>
+            <p>
+                We do not use a third-party payment gateway, and we do not collect or store card
+                numbers, UPI PINs, CVV codes or bank passwords. UPI payments are made directly
+                from your UPI app to the shop's UPI ID shown at checkout. Net Banking is simulated
+                in the app for demonstration and Cash on Delivery is available. What we record is
+                the payment method, the shop's UPI ID or the bank name you typed, and the payment
+                status. Please check the amount and the payee in your own UPI or banking app before
+                approving any payment.
+            </p>
+        </section>
+
+        <section id="why">
+            <h2>4. Why we use your information</h2>
+            <ul>
+                <li>To create and secure your account, sign you in and let you reset your password.</li>
+                <li>To take, prepare, deliver and keep a record of your orders.</li>
+                <li>To contact you about an order or a message you sent us.</li>
+                <li>To operate the site safely, diagnose errors and prevent abuse.</li>
+                <li>To meet our legal, tax and accounting obligations.</li>
+            </ul>
+            <p>
+                We do not sell your personal information, and we do not use it for third-party
+                advertising or profiling.
+            </p>
+        </section>
+
+        <section id="sharing">
+            <h2>5. Who we share it with</h2>
+            <p>
+                We share personal information only with the service providers that run this site,
+                or where the law requires it. These providers are:
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Provider</th><th>Purpose</th><th>Information involved</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Render</td>
+                            <td>Hosts the website and runs the server</td>
+                            <td>Requests and data handled by the application</td>
+                        </tr>
+                        <tr>
+                            <td>MongoDB database hosting</td>
+                            <td>Stores accounts, orders and contact messages</td>
+                            <td>All data described in section 2</td>
+                        </tr>
+                        <tr>
+                            <td>Twilio (WhatsApp API), if configured</td>
+                            <td>Sends new-signup and order notifications to shop staff</td>
+                            <td>Name, email, phone, address, order items and totals</td>
+                        </tr>
+                        <tr>
+                            <td>Telegram Bot API, if configured</td>
+                            <td>Sends order notifications to shop staff</td>
+                            <td>Name, phone, email, address, order items and totals</td>
+                        </tr>
+                        <tr>
+                            <td>Our email (SMTP) provider, if configured</td>
+                            <td>Delivers password-reset emails</td>
+                            <td>Email address and the one-time reset link</td>
+                        </tr>
+                        <tr>
+                            <td>Facebook, Instagram and X (Twitter)</td>
+                            <td>Only if you choose social sign-in</td>
+                            <td>Handled by those providers under their own policies</td>
+                        </tr>
+                        <tr>
+                            <td>cdnjs (Cloudflare), Google Fonts, Google Maps</td>
+                            <td>Serve code, fonts and the embedded map</td>
+                            <td>Your IP address and browser information, as with any web request</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Shop staff and the owner can see orders and contact messages so they can fulfil and
+                respond to them. We may also disclose information if required by law, a court order
+                or a lawful request from a public authority, or to protect our rights and the safety
+                of customers.
+            </p>
+        </section>
+
+        <section id="retention">
+            <h2>6. How long we keep it</h2>
+            <p>
+                The application does not currently run an automated retention schedule. In practice:
+            </p>
+            <ul>
+                <li><strong>Account:</strong> kept until you delete your account or ask us to delete it.</li>
+                <li><strong>Orders:</strong> kept as a business and accounting record. If you delete your account, the order's name, phone, email, address and payment identifiers are removed or replaced, while the item list, amounts and dates remain in anonymised form.</li>
+                <li><strong>Contact messages:</strong> kept until the enquiry has been handled and is no longer needed, or until you ask us to delete it.</li>
+                <li><strong>Password-reset links:</strong> expire after 1 hour.</li>
+                <li><strong>Sign-in token:</strong> expires after 7 days (or sooner if you sign out or delete your account).</li>
+                <li><strong>Social sign-in session cookie:</strong> expires after about 10 minutes.</li>
+                <li><strong>Cart, language and install-prompt data on your device:</strong> kept until you clear your browser storage.</li>
+            </ul>
+        </section>
+
+        <section id="security">
+            <h2>7. How we protect it</h2>
+            <p>
+                Passwords are hashed with bcrypt, password-reset tokens are stored only as SHA-256
+                hashes, sign-in tokens are signed and time-limited, and secrets are kept in
+                environment variables rather than in the source code. The live site is served over
+                HTTPS by our host. Account deletion requests are protected by re-authentication, a
+                short-lived anti-forgery token and attempt limits.
+            </p>
+            <p>
+                No method of transmission or storage is completely secure. If you believe your
+                account has been compromised, contact us immediately using
+                <a href="#contact">section 13</a>.
+            </p>
+        </section>
+
+        <section id="choices">
+            <h2>8. Your choices and rights</h2>
+            <p>
+                Depending on where you live, you may have the right to ask for a copy of your
+                personal information, to correct it, to delete it, or to object to certain uses.
+                You can:
+            </p>
+            <ul>
+                <li>Delete your account yourself from the <a href="/delete-account">delete account page</a>.</li>
+                <li>Ask us to delete a contact-form message or an order record, or to correct your details, using the contact details below.</li>
+                <li>Clear the cart, saved language and sign-in data at any time by clearing your browser storage or signing out.</li>
+            </ul>
+            <p>
+                Because contact-form messages are not linked to accounts, please include the name,
+                phone number and approximate date you used so we can find the right record. We may
+                ask you to verify your identity before acting on a request. You also have the right
+                to complain to your local data-protection authority.
+            </p>
+        </section>
+
+        <section id="delete">
+            <h2>9. Deleting your account</h2>
+            <p>
+                Signed-in customers can delete their account at any time from the
+                <a href="/delete-account">delete account page</a> (also linked from the account
+                menu on the home page). For local accounts you confirm with your current password;
+                for social sign-in accounts you confirm with the account's email address. In both
+                cases you must also type <strong>DELETE</strong>.
+            </p>
+            <p>
+                Deleting your account removes your account record and your sign-in token stops
+                working. Your past orders are anonymised rather than erased so that sales and
+                accounting records stay accurate. If you have never created an account but sent us
+                a contact message, use the contact details below to ask for its deletion.
+            </p>
+        </section>
+
+        <section id="children">
+            <h2>10. Children</h2>
+            <p>
+                This site is intended for adults and is not directed to children under 13. We do
+                not knowingly collect personal information from children under 13. If you believe
+                a child has provided us with personal information, contact us and we will delete it.
+            </p>
+        </section>
+
+        <section id="third-party">
+            <h2>11. Third-party links and embeds</h2>
+            <p>
+                The site embeds a Google Map and loads fonts and code libraries from third-party
+                servers. It also links to external sites such as Google Maps and Wikimedia Commons
+                for photo credits. Those services receive your IP address and browser details when
+                your browser loads them, and they follow their own privacy policies. We do not
+                control their practices.
+            </p>
+        </section>
+
+        <section id="changes">
+            <h2>12. Changes to this policy</h2>
+            <p>
+                We may update this policy when the site or the law changes. The "Last updated" date
+                at the top shows when it was last revised. If a change materially affects how we
+                use your information, we will post a clear notice on this site.
+            </p>
+        </section>
+
+        <section id="contact">
+            <h2>13. Contact us</h2>
+            <div class="card">
+                <p><strong>S.L.A Fruit Shop</strong><br>
+                Attn: Shahjahan (Owner)<br>
+                ECR Road, Kattumavadi, Tamil Nadu 614630, India</p>
+                <p>
+                    Phone: <a href="tel:9715840263">9715840263</a> or
+                    <a href="tel:9843018039">9843018039</a><br>
+                    Email: <span class="placeholder">REPLACE_WITH_VERIFIED_BUSINESS_EMAIL</span>
+                </p>
+                <p>Shop hours: 7:00 AM – 10:00 PM, daily.</p>
+            </div>
+            <div class="notice">
+                <strong>Release blocker:</strong> the business email address above is a placeholder.
+                It must be replaced with a monitored, verified business email before this policy is
+                published or the app is submitted to Google Play. A working email is also required so
+                customers can exercise the rights described in this policy.
+            </div>
+            <div class="actions">
+                <a class="btn btn-primary" href="/delete-account">Delete my account</a>
+                <a class="btn btn-secondary" href="/">Back to the shop</a>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 S.L.A Fruit Shop, Kattumavadi. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>

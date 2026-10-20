@@ -36,6 +36,7 @@ app.use(passport.initialize());
 
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/account', require('./routes/account'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/orders', require('./routes/orders'));
 
@@ -45,6 +46,21 @@ app.get('/admin', (req, res) => {
 
 app.get('/reset-password', (req, res) => {
   res.sendFile(path.join(__dirname, 'reset-password.html'));
+});
+
+app.get('/privacy-policy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'privacy-policy.html'));
+});
+
+app.get('/delete-account', (req, res) => {
+  res.sendFile(path.join(__dirname, 'delete-account.html'));
+});
+
+// express.static ignores dotfiles by default, so .well-known must be served
+// explicitly for Android Digital Asset Links verification.
+app.get('/.well-known/assetlinks.json', (req, res) => {
+  res.type('application/json');
+  res.sendFile(path.join(__dirname, '.well-known', 'assetlinks.json'));
 });
 
 app.get('*', (req, res) => {

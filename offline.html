@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e7d32">
+    <title>You're Offline — S.L.A Fruit Shop</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            min-height: 100%;
+            background-color: #f7fff7;
+            color-scheme: light;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            padding: calc(1.5rem + env(safe-area-inset-top)) calc(1.5rem + env(safe-area-inset-right)) calc(1.5rem + env(safe-area-inset-bottom)) calc(1.5rem + env(safe-area-inset-left));
+            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.07), transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(231, 111, 81, 0.07), transparent 45%),
+                #f7fff7;
+            color: #1a1a2e;
+            line-height: 1.5;
+        }
+
+        .offline-card {
+            width: 100%;
+            max-width: 420px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .offline-logo {
+            width: 96px;
+            height: 96px;
+            object-fit: contain;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .offline-brand {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #2e7d32;
+            margin-bottom: 1.25rem;
+        }
+
+        .offline-card h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .offline-text {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-bottom: 1.75rem;
+        }
+
+        .retry-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .retry-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(42, 157, 143, 0.35);
+        }
+
+        .retry-btn:focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 3px;
+        }
+
+        .offline-contact {
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .offline-contact p {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .phone-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .phone-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.6rem 1.1rem;
+            border: 1px solid rgba(37, 99, 235, 0.25);
+            border-radius: 50px;
+            color: #2563eb;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .phone-link:hover {
+            background: #eff6ff;
+        }
+
+        .phone-link:focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 480px) {
+            .offline-card { padding: 2rem 1.25rem; }
+            .offline-card h1 { font-size: 1.45rem; }
+        }
+    </style>
+</head>
+<body>
+    <main class="offline-card" role="main">
+        <img class="offline-logo" src="/icons/icon-512.png" alt="" width="96" height="96">
+        <p class="offline-brand">S.L.A Fruit Shop</p>
+        <h1>You're offline</h1>
+        <p class="offline-text">
+            We can't reach the internet right now. Current fruit prices, signing in,
+            cart sync and placing orders all need an internet connection.
+            Please check your connection and try again.
+        </p>
+        <button type="button" class="retry-btn" onclick="window.location.reload()">
+            🔄 Retry
+        </button>
+        <div class="offline-contact">
+            <p>Need help? Calling the shop works without internet:</p>
+            <div class="phone-links">
+                <a class="phone-link" href="tel:9715840263" aria-label="Call S.L.A Fruit Shop on 9715840263">📞 9715840263</a>
+                <a class="phone-link" href="tel:9843018039" aria-label="Call S.L.A Fruit Shop on 9843018039">📞 9843018039</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

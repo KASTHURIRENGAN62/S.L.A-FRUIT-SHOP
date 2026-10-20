@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>S.L.A Fruit Shop - Premium Fresh Fruits | Wholesale & Retail | Kattumavadi</title>
     <meta name="description" content="S.L.A Fruit Shop - ECR Road, Kattumavadi. Premium Indian & imported fruits. Wholesale & retail. Door delivery within 3km. Contact: 9715840263">
-    <link rel="icon" href="images/SLA-logo.png">
-    <link rel="apple-touch-icon" href="images/SLA-logo.png">
+    <meta name="theme-color" content="#2e7d32">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SLA Fruits">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
@@ -538,17 +544,18 @@
     <section id="health" class="health-section">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag" data-i18n="health.tag">Ayurvedic Wisdom</span>
-                <h2 data-i18n-html="health.title">🌿 Health <span class="gradient-text">Benefits</span></h2>
-                <p data-i18n="health.sub">Indian fruits are nature's medicine — discover what each fruit offers</p>
+                <span class="section-tag" data-i18n="health.tag">Nutrition Guide</span>
+                <h2 data-i18n-html="health.title">🌿 Fruit <span class="gradient-text">Nutrition</span></h2>
+                <p data-i18n="health.sub">Discover the nutrients each fruit provides. General information only — not medical advice.</p>
             </div>
             <div class="health-filter-tabs">
-                <button class="health-filter-btn active" data-health="all"><span data-i18n="health.all">All Benefits</span></button>
-                <button class="health-filter-btn" data-health="Immunity"><span data-i18n="health.immunity">🛡️ Immunity</span></button>
-                <button class="health-filter-btn" data-health="Digestive"><span data-i18n="health.digestive">🌱 Digestion</span></button>
-                <button class="health-filter-btn" data-health="Heart"><span data-i18n="health.heart">❤️ Heart</span></button>
-                <button class="health-filter-btn" data-health="Skin"><span data-i18n="health.skin">✨ Skin</span></button>
+                <button class="health-filter-btn active" data-health="all"><span data-i18n="health.all">All Nutrients</span></button>
+                <button class="health-filter-btn" data-health="Vitamin C"><span data-i18n="health.immunity">🍊 Vitamin C</span></button>
+                <button class="health-filter-btn" data-health="Fibre"><span data-i18n="health.digestive">🌾 Fibre</span></button>
+                <button class="health-filter-btn" data-health="Antioxidants"><span data-i18n="health.heart">✨ Antioxidants</span></button>
+                <button class="health-filter-btn" data-health="Potassium"><span data-i18n="health.skin">🍌 Potassium</span></button>
             </div>
+            <p class="health-disclaimer">Nutritional information is provided for general awareness only and is not medical advice. Individual dietary needs may vary; consult a qualified healthcare professional when necessary.</p>
             <div id="health-grid" class="health-grid"></div>
         </div>
     </section>
@@ -914,6 +921,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 S.L.A Fruit Shop, Kattumavadi. All rights reserved.</p>
                 <p>Wholesale & Retail | Door Delivery within 3km</p>
+                <p class="footer-legal"><a href="/privacy-policy">Privacy Policy</a> &middot; <a href="/delete-account">Delete Account</a></p>
             </div>
             <div class="footer-credits">
                 <h4>📷 Photo Credits</h4>
@@ -932,6 +940,11 @@
 
     <!-- Cart Overlay -->
     <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- PWA Install Button (hidden until the browser offers installation) -->
+    <button class="install-app-btn hidden" id="install-app-btn" type="button" aria-label="Install S.L.A Fruit Shop app">
+        📲 <span>Install App</span>
+    </button>
 
     <!-- Floating Cart Button -->
     <button class="floating-cart-btn" id="floating-cart-btn" aria-label="Open cart">
@@ -1307,6 +1320,7 @@
     <div id="user-menu" class="user-menu hidden">
         <div class="user-menu-content">
             <span id="user-name-display"></span>
+            <a id="delete-account-link" href="/delete-account">Delete Account</a>
             <button id="logout-btn" data-i18n="auth.signout">Sign Out</button>
         </div>
     </div>

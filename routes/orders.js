@@ -2,20 +2,30 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const Order = require('../models/Order');
+const User = require('../models/User');
 const { notifyTelegram } = require('../utils/telegram');
 
-// Only signed-in customers can place an order.
-function requireAuth(req, res, next) {
+// Only signed-in customers can place an order. The user must still exist, so a
+// token issued before an account was deleted stops working immediately.
+async function requireAuth(req, res, next) {
   const header = req.headers.authorization;
   if (!header || !header.startsWith('Bearer ')) {
     return res.status(401).json({ error: 'No token provided' });
   }
   try {
     req.userId = jwt.verify(header.split(' ')[1], process.env.JWT_SECRET).userId;
-    next();
   } catch (err) {
     return res.status(401).json({ error: 'Invalid token' });
   }
+  try {
+    const user = await User.findById(req.userId).select('_id');
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid token' });
+    }
+  } catch (err) {
+    return res.status(500).json({ error: 'Server error' });
+  }
+  next();
 }
 
 const VALID_METHODS = ['netbanking', 'upi', 'cod'];
